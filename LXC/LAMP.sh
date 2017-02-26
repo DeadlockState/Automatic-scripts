@@ -22,15 +22,15 @@ if [ "$USER" = "root" ] ; then
 	echo " 3. Installing Apache 2.4..."
 	echo ""
 	
-	apt-get install -y apache2 php7.0 mysql-server libapache2-mod-php7.0 php7.0-mysql
-	
-	echo ""
 	echo " 4. Installing PHP 7.0..."
 	echo ""
 	
 	echo " 5. Installing MySQL..."
 	echo ""
 	
+	apt-get install -y apache2 php7.0 mysql-server libapache2-mod-php7.0 php7.0-mysql
+	
+	echo ""
 	read -p " Would you like install phpMyAdmin ? [y/N] " INSTALL_PHPMYADMIN
 	echo ""
 	
