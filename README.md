@@ -10,7 +10,7 @@
   chmod +x VirtualHost_creator.sh
 ```
 
-
+ 
 ## For LXC containers
 
 #### LAMP ([LAMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC/LAMP.sh))
@@ -33,7 +33,7 @@ Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpM
   chmod +x LEMP.sh
 ```
 
-
+ 
 ## For virtual machines
 
 #### LAMP ([LAMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/VirtualMachines/LAMP.sh))
