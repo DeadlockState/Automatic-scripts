@@ -45,8 +45,6 @@ if [ "$USER" = "root" ] ; then
 		echo ""
 
 		apt-get install -y phpmyadmin
-		
-		ln -s /usr/share/phpmyadmin/ /var/www/html/
 	fi
 	
 	echo ""
