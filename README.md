@@ -1,6 +1,6 @@
 # Automatic scripts
 
-## LXC
+## For LXC containers
 
 #### LXC/LAMP.sh
 
@@ -22,7 +22,7 @@ Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpM
   chmod +x LAMP.sh
 ```
 
-## Virtual machines
+## For virtual machines
 
 #### VirtualMachine/LAMP.sh
 
