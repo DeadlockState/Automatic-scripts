@@ -1,5 +1,16 @@
 # Punk--Rock's automatic scripts
 
+## Utilities
+
+#### VirtualHost creator ([VirtualHost_creator.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/utilities/VirtualHost_creator.sh))
+
+```shell
+  wget --no-cache https://github.com/Punk--Rock/Automatic-scripts/blob/master/utilities/VirtualHost_creator.sh
+
+  chmod +x VirtualHost_creator.sh
+```
+
+
 ## For LXC containers
 
 #### LAMP ([LAMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC/LAMP.sh))
