@@ -2,7 +2,7 @@
 
 ## For LXC containers
 
-#### LAMP (LAMP.sh)
+#### [LAMP (LAMP.sh)](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC/LAMP.sh)
 
 Preparing and installing a fully LAMP server (Apache 2.4 + PHP 7.0 + MySQL + phpMyAdmin (optional) + Let's Encrypt(optional))
 
@@ -12,7 +12,7 @@ Preparing and installing a fully LAMP server (Apache 2.4 + PHP 7.0 + MySQL + php
   chmod +x LAMP.sh
 ```
 
-#### LEMP (LEMP.sh)
+#### [LEMP (LEMP.sh)](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC/LEMP.sh)
 
 Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpMyAdmin (optional) + Let's Encrypt (optional))
 
