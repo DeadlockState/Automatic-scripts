@@ -22,8 +22,25 @@ Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpM
   chmod +x LEMP.sh
 ```
 
+
 ## For virtual machines
 
-#### VirtualMachine/LAMP.sh
+#### LAMP ([LAMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/VirtualMachines/LAMP.sh))
 
-#### VirtualMachine/LEMP.sh
+Preparing and installing a fully LAMP server (Apache 2.4 + PHP 7.0 + MySQL + phpMyAdmin (optional) + Let's Encrypt(optional))
+
+```shell
+  wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC/LAMP.sh
+
+  chmod +x LAMP.sh
+```
+
+#### LEMP ([LEMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/VirtualMachines/LEMP.sh))
+
+Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpMyAdmin (optional) + Let's Encrypt (optional))
+
+```shell
+  wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC/LEMP.sh
+
+  chmod +x LEMP.sh
+```
