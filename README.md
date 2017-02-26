@@ -4,6 +4,8 @@
 
 #### VirtualHost creator ([VirtualHost_creator.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/utilities/VirtualHost_creator.sh))
 
+Creates automatically a new VirtualHost (SSL or not) on your Apache or Nginx web server, you just need to fill the FQDN and the webmaster's email address of the server
+
 ```shell
 wget --no-cache https://github.com/Punk--Rock/Automatic-scripts/blob/master/utilities/VirtualHost_creator.sh
 
