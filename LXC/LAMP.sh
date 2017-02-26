@@ -63,8 +63,7 @@ if [ "$USER" = "root" ] ; then
 	mv apache2.conf apache2.conf.default
 
 	wget --quiet https://raw.githubusercontent.com/Punk--Rock/Configuration-files/master/apache2/apache2.conf
-	
-	echo ""
+
 	echo " 9. Restarting Apache..."
 	echo ""
 
