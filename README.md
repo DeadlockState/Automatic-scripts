@@ -2,7 +2,7 @@
 
 ## LXC
 
-### LAMP.sh
+#### LAMP.sh
 
 Preparing and installing a fully LAMP server (Apache 2.4 + PHP 7.0 + MySQL + phpMyAdmin (optional) + Let's Encrypt(optional)) on a LXC
 
@@ -12,7 +12,7 @@ Preparing and installing a fully LAMP server (Apache 2.4 + PHP 7.0 + MySQL + php
   chmod +x LEMP.sh
 ```
 
-### LEMP.sh
+#### LEMP.sh
 
 Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpMyAdmin (optional) + Let's Encrypt (optional)) on a LXC
 
