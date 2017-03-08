@@ -64,7 +64,7 @@ if [ "$USER" = "root" ] ; then
 	
 	apt-get install -y python-pip
 	
-	echo "pip install --upgrade pyopenssl is running..."
+	echo "Running pip install --upgrade pyopenssl ..."
 	
 	pip install --upgrade pyopenssl > /dev/null 2>&1
 	
@@ -82,9 +82,9 @@ if [ "$USER" = "root" ] ; then
  
 	cp CouchPotatoServer/init/ubuntu.default /etc/default/couchpotato
 	
-	sed -i 's/CP_USER=couchpotato/CP_USER=root/g' /etc/transmission-daemon/settings.json
+	sed -i 's/CP_USER=couchpotato/CP_USER=root/g' /etc/default/couchpotato
 	
-	sed -i 's/CP_HOME=/CP_HOME=\/opt\/CouchPotatoServer/g' /etc/transmission-daemon/settings.json
+	sed -i 's/CP_HOME=/CP_HOME=\/opt\/CouchPotatoServer/g' /etc/default/couchpotato
 	
 	chmod +x /etc/init.d/couchpotato
 	
@@ -123,7 +123,7 @@ if [ "$USER" = "root" ] ; then
 		
 		wget https://github.com/ronggang/transmission-web-control/raw/master/release/transmission-control-full.tar.gz
 		
-		tar -zxvf transmission-control-full.tar.gz
+		tar -zxf transmission-control-full.tar.gz
 		
 		service transmission-daemon reload
 	fi
@@ -139,8 +139,9 @@ if [ "$USER" = "root" ] ; then
 	if [ "$INSTALL_TORRENT" = "r" ] ; then
 		echo " ruTorrent : http://"$IP_ADDRESS":XXXX"
 	else
-		echo " Transmission : http://"$IP_ADDRESS":9091 with transmission/transmission credentials"
+		echo " Transmission : http://"$IP_ADDRESS":9091  (username/password : transmission)"
 	fi
+	echo ""
 else
 	echo ""
 	echo "You are not root :("
