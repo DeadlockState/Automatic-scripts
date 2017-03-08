@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ "$USER" = "root" ] ; then
 	echo ""
-	echo " 1. Fixing default system's locale..."
+	echo " 1. Fixing default locale problems with LXC containers..."
 	echo ""
 	
 	locale-gen en_US en_US.UTF-8
