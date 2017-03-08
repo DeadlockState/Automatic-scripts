@@ -92,7 +92,6 @@ if [ "$USER" = "root" ] ; then
 	
 	service couchpotato start
 	
-	echo ""
 	read -p " Would you like install rTorrent + ruTorrent or Transmission ? [r/T] " INSTALL_TORRENT
 	echo ""
 	
