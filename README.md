@@ -13,47 +13,34 @@ chmod +x VirtualHost_creator.sh
 ```
 
  
-## For LXC containers
+## For LXC containers and Virtual Machines
 
-#### LAMP ([LAMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC/LAMP.sh))
-
-Preparing and installing a fully LAMP server (Apache 2.4 + PHP 7.0 + MySQL + phpMyAdmin (optional) + Let's Encrypt(optional))
-
-```shell
-wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC/LAMP.sh
-
-chmod +x LAMP.sh
-```
-
-#### LEMP ([LEMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC/LEMP.sh))
-
-Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpMyAdmin (optional) + Let's Encrypt (optional))
-
-```shell
-wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC/LEMP.sh
-
-chmod +x LEMP.sh
-```
-
- 
-## For virtual machines
-
-#### LAMP ([LAMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/VirtualMachines/LAMP.sh))
+#### LAMP ([LAMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC_VirtualMachines/LAMP.sh))
 
 Preparing and installing a fully LAMP server (Apache 2.4 + PHP 7.0 + MySQL + phpMyAdmin (optional) + Let's Encrypt(optional))
 
 ```shell
-wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC/LAMP.sh
+wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/LAMP.sh
 
 chmod +x LAMP.sh
 ```
 
-#### LEMP ([LEMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/VirtualMachines/LEMP.sh))
+#### LEMP ([LEMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC_VirtualMachines/LEMP.sh))
 
 Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpMyAdmin (optional) + Let's Encrypt (optional))
 
 ```shell
-wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC/LEMP.sh
+wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/LEMP.sh
 
 chmod +x LEMP.sh
+```
+
+#### Seedbox ([Seedbox.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC_VirtualMachines/Seedbox.sh))
+
+Preparing and installing a fully seedbox server (Plex + SickRage + CouchPotato + rTorrent/ruTorrent or Transmission)
+
+```shell
+wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/Seedbox.sh
+
+chmod +x Seedbox.sh
 ```
