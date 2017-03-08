@@ -12,7 +12,8 @@ wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/m
 chmod +x VirtualHost_creator.sh
 ```
 
- 
+&nbsp;
+
 ## For LXC containers and Virtual Machines
 
 #### LAMP ([LAMP.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC_VirtualMachines/LAMP.sh))
