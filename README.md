@@ -1,5 +1,3 @@
-![Terminal](http://image.noelshack.com/fichiers/2017/10/1489018271-472772-appicns-terminal.png)
-
 # Punk--Rock's automatic scripts
 
 
