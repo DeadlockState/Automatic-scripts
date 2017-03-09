@@ -14,8 +14,7 @@ wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/m
 
 chmod +x VirtualHost_creator.sh
 ```
-
-
+<br><br>
 ![Container](https://cdn2.iconfinder.com/data/icons/iconslandgps/PNG/48x48/Containers/ContainerRed.png)
 
 ## For LXC containers and Virtual Machines
