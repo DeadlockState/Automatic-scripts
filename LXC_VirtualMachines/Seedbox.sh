@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ "$USER" = "root" ] ; then
+if [ $USER = "root" ] ; then
 	echo ""
 	echo " 1. Fixing default locale problems with LXC containers..."
 	echo ""
@@ -25,11 +25,11 @@ if [ "$USER" = "root" ] ; then
 	cd /tmp/
  
 	wget https://downloads.plex.tv/plex-media-server/1.3.4.3285-b46e0ea/plexmediaserver_1.3.4.3285-b46e0ea_amd64.deb
-	 
+	
 	dpkg -i plexmediaserver_1.3.4.3285-b46e0ea_amd64.deb
 	
 	apt-get update -y
-	 
+	
 	apt-get install plexmediaserver
 	
 	echo ""
@@ -94,7 +94,7 @@ if [ "$USER" = "root" ] ; then
 	
 	cd CouchPotatoServer/couchpotato/core/helpers/
 	
-	wget https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/namer_check.py
+	wget --quiet https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/namer_check.py
 	
 	cd /var/opt/couchpotato/custom_plugins
 	
@@ -102,21 +102,21 @@ if [ "$USER" = "root" ] ; then
 	
 	cd cpasbien/
 	
-	wget https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/cpasbien/__init__.py
+	wget --quiet https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/cpasbien/__init__.py
 	
-	wget https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/cpasbien/main.py
+	wget --quiet https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/cpasbien/main.py
 	
 	cd ../t411/
 	
-	wget https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/t411/__init__.py
+	wget --quiet https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/t411/__init__.py
 	
-	wget https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/t411/main.py
+	wget --quiet https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/t411/main.py
 	
 	cd ../torrent9/
 	
-	wget https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/torrent9/__init__.py
+	wget --quiet https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/torrent9/__init__.py
 	
-	wget https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/torrent9/main.py
+	wget --quiet https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/torrent9/main.py
 	
 	service couchpotato restart
 	
@@ -124,10 +124,168 @@ if [ "$USER" = "root" ] ; then
 	echo ""
 	
 	if [ "$INSTALL_TORRENT" = "r" ] ; then
-		echo " 7. Installing rTorrent + ruTorrent..."
+		echo " 7. Installing rTorrent/ruTorrent (with Nginx)..."
 		echo ""
 
-		# 
+		apt-get install -y automake libcppunit-dev libtool build-essential pkg-config libssl-dev libcurl4-openssl-dev libsigc++-2.0-dev libncurses5-dev screen subversion nginx php7.0 php7.0-fpm php7.0-cli php7.0-curl php-geoip php7.0-xmlrpc unrar rar zip ffmpeg buildtorrent mediainfo python-libtorrent rtorrent
+ 
+		cd /var/www/html/
+		 
+		git clone https://github.com/Novik/ruTorrent.git rutorrent
+		 
+		cd rutorrent/plugins/
+		 
+		git clone https://github.com/xombiemp/rutorrentMobile.git mobile
+		
+		echo ""
+		echo " 8. Configuring ruTorrent"
+		echo ""
+		
+		sed -i 's/$useExternal = false/$useExternal = '\''buildtorrent'\''/g' /var/www/html/rutorrent/plugins/create/conf.php
+		
+		sed -i 's/$pathToCreatetorrent = '\'''\''/$pathToCreatetorrent = '\''\/usr\/bin\/buildtorrent'\''/g' /var/www/html/rutorrent/plugins/create/conf.php
+		
+		echo " 9. Configuring Nginx and downloading server block for ruTorrent..."
+		echo ""
+		
+		cd /etc/nginx/
+
+		mv nginx.conf nginx.conf.default
+
+		wget --quiet https://raw.githubusercontent.com/Punk--Rock/Configuration-files/master/nginx/nginx.conf
+		
+		cd sites-available/
+
+		wget --quiet https://raw.githubusercontent.com/Punk--Rock/Configuration-files/master/nginx/sites-available/rutorrent.conf
+
+		cd ../sites-enabled/
+
+		rm default
+
+		ln -s /etc/nginx/sites-available/rutorrent.conf
+		
+		sed -i 's/;date.timezone =/date.timezone = Europe\/Paris/g' /etc/php/7.0/fpm/php.ini
+		
+		read -p " What will be the username to access to ruTorrent ? [rutorrent] " RUTORRENT_USER_TEMP
+		
+		if [ -z $RUTORRENT_USER_TEMP ] ; then
+			RUTORRENT_USER="rutorrent"
+		else
+			RUTORRENT_USER=$(echo "$RUTORRENT_USER_TEMP" | tr -s '[:upper:]' '[:lower:]')
+		fi
+		
+		read -s -p " and the password ? [rutorrent] " RUTORRENT_PASSWORD
+		
+		if [ -z $RUTORRENT_PASSWORD ] ; then
+			RUTORRENT_PASSWORD = "rutorrent"
+		fi
+		
+		sed -i 's/rutorrent_user/'$RUTORRENT_USER'/g' /etc/nginx/sites-available/rutorrent.conf
+		
+		htpasswd -b -c /var/www/html/rutorrent/.htpasswd $RUTORRENT_USER $RUTORRENT_PASSWORD
+		
+		chmod 400 /var/www/html/rutorrent/.htpasswd
+		
+		chown www-data:www-data /var/www/html/rutorrent/.htpasswd
+		
+		service nginx restart && service php7.0-fpm restart
+		
+		echo ""
+		echo " 9. Configuring "$RUTORRENT_USER" user for rTorrent and ruTorrent..."
+		echo ""
+		
+		useradd $RUTORRENT_USER
+		
+		echo -e $RUTORRENT_PASSWORD"\n"$RUTORRENT_PASSWORD | passwd $RUTORRENT_USER
+		
+		cd /home/
+		
+		mkdir $RUTORRENT_USER/ && cd $RUTORRENT_USER/
+		
+		mkdir torrents watch .session
+		
+		touch .rtorrent.rc
+		
+		echo "scgi_port = 127.0.0.1:5001
+encoding_list = UTF-8
+port_range = 45000-65000
+port_random = no
+check_hash = no
+directory = /home/"$RUTORRENT_USER"/torrents
+session = /home/"$RUTORRENT_USER"/.session
+encryption = allow_incoming, try_outgoing, enable_retry
+schedule = watch_directory,1,1,\"load_start=/home/"$RUTORRENT_USER"/watch/*.torrent\"
+schedule = untied_directory,5,5,\"stop_untied=/home/"$RUTORRENT_USER"/watch/*.torrent\"
+use_udp_trackers = yes
+dht = off
+peer_exchange = no
+min_peers = 40
+max_peers = 100
+min_peers_seed = 10
+max_peers_seed = 50
+max_uploads = 15
+execute = {sh,-c,/usr/bin/php /var/www/html/rutorrent/php/initplugins.php "$RUTORRENT_USER" &}
+schedule = espace_disque_insuffisant,1,30,close_low_diskspace=500M" > .rtorrent.rc
+
+		chown -R $RUTORRENT_USER:$RUTORRENT_USER /home/$RUTORRENT_USER/
+		
+		chown root:root /home/$RUTORRENT_USER/
+		
+		chmod 755 /home/$RUTORRENT_USER/
+		
+		cd /var/www/html/rutorrent/conf/users/
+		
+		mkdir $RUTORRENT_USER/ && cd $RUTORRENT_USER/
+		
+		touch config.php
+		
+		echo "<?php
+\$pathToExternals['curl'] = '/usr/bin/curl';
+\$topDirectory = '/home/"$RUTORRENT_USER"';
+\$scgi_port = 5001;
+\$scgi_host = '127.0.0.1';
+\$XMLRPCMountPoint = '/"$RUTORRENT_USER"';" > config.php
+	
+		chown -R www-data:www-data /var/www/html/
+		
+		service nginx restart
+		
+		echo ""
+		echo " 10. Configuring rTorrent service..."
+		echo ""
+		
+		cd /etc/init.d/
+		
+		touch rtorrent
+		
+		echo "#!/usr/bin/env bash
+user=\""$RUTORRENT_USER"\"
+
+rt_start() {
+su --command=\"screen -dmS ${user}-rtorrent rtorrent" "${user}\"
+}
+
+rt_stop() {
+	killall --user \"${user}\" screen
+}
+
+case \"$1\" in
+	start) echo \"Starting rRorrent...\"; rt_start
+	;;
+	stop) echo \"Stopping rTorrent...\"; rt_stop
+	;;
+	restart) echo \"Restarting rTorrent...\"; rt_stop; sleep 1; rt_start
+	;;
+	*) echo \"Usage: $0 {start|stop|restart}\"; exit 1
+	;;
+	esac
+	exit 0" > rtorrent
+		
+		chmod +x rtorrent
+		
+		update-rc.d rtorrent defaults
+		
+		service rtorrent start
 	else
 		echo " 7. Installing Transmission..."
 		echo ""
@@ -164,9 +322,9 @@ if [ "$USER" = "root" ] ; then
 	echo " SickRage : http://"$IP_ADDRESS":8081/home/"
 	echo " CouchPotato : http://"$IP_ADDRESS":5050"
 	if [ "$INSTALL_TORRENT" = "r" ] ; then
-		echo " ruTorrent : http://"$IP_ADDRESS":XXXX"
+		echo " ruTorrent : http://"$IP_ADDRESS"   (username : "$RUTORRENT_USER" / password : "$RUTORRENT_PASSWORD")"
 	else
-		echo " Transmission : http://"$IP_ADDRESS":9091  (username/password : transmission)"
+		echo " Transmission : http://"$IP_ADDRESS":9091   (username/password : transmission)"
 	fi
 	echo ""
 else
