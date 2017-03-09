@@ -2,7 +2,8 @@
 
 # Punk--Rock's automatic scripts
 
-![Utilities](https://cdn2.iconfinder.com/data/icons/oxygen/64x64/categories/preferences-system.png)
+
+![Utilities](https://cdn2.iconfinder.com/data/icons/oxygen/48x48/categories/preferences-system.png)
 
 ## Utilities
 
@@ -16,7 +17,8 @@ wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/m
 chmod +x VirtualHost_creator.sh
 ```
 
-![Container](https://cdn2.iconfinder.com/data/icons/iconslandgps/PNG/64x64/Containers/ContainerRed.png)
+
+![Container](https://cdn2.iconfinder.com/data/icons/iconslandgps/PNG/48x48/Containers/ContainerRed.png)
 
 ## For LXC containers and Virtual Machines
 
