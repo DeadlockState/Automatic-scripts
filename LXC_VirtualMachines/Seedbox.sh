@@ -92,6 +92,34 @@ if [ "$USER" = "root" ] ; then
 	
 	service couchpotato start
 	
+	cd CouchPotatoServer/couchpotato/core/helpers/
+	
+	wget https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/namer_check.py
+	
+	cd /var/opt/couchpotato/custom_plugins
+	
+	mkdir cpasbien t411 torrent9
+	
+	cd cpasbien/
+	
+	wget https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/cpasbien/__init__.py
+	
+	wget https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/cpasbien/main.py
+	
+	cd ../t411/
+	
+	wget https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/t411/__init__.py
+	
+	wget https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/t411/main.py
+	
+	cd ../torrent9/
+	
+	wget https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/torrent9/__init__.py
+	
+	wget https://raw.githubusercontent.com/Punk--Rock/couchpotato.providers.french/master/torrent9/main.py
+	
+	service couchpotato restart
+	
 	read -p " Would you like install rTorrent + ruTorrent or Transmission ? [r/T] " INSTALL_TORRENT
 	echo ""
 	
