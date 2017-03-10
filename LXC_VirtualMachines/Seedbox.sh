@@ -138,7 +138,7 @@ if [ $USER = "root" ] ; then
 		git clone https://github.com/xombiemp/rutorrentMobile.git mobile
 		
 		echo ""
-		echo " 8. Configuring ruTorrent"
+		echo " 8. Configuring ruTorrent..."
 		echo ""
 		
 		sed -i 's/$useExternal = false/$useExternal = '\''buildtorrent'\''/g' /var/www/html/rutorrent/plugins/create/conf.php
@@ -183,7 +183,7 @@ if [ $USER = "root" ] ; then
 		
 		sed -i 's/rutorrent_user/'$RUTORRENT_USER'/g' /etc/nginx/sites-available/rutorrent.conf
 		
-		htpasswd -b -c /var/www/html/rutorrent/.htpasswd $RUTORRENT_USER $RUTORRENT_PASSWORD
+		htpasswd -b -c /var/www/html/rutorrent/.htpasswd $RUTORRENT_USER $RUTORRENT_PASSWORD > /dev/null 2>&1
 		
 		chmod 400 /var/www/html/rutorrent/.htpasswd
 		
@@ -249,7 +249,6 @@ schedule = espace_disque_insuffisant,1,30,close_low_diskspace=500M" > .rtorrent.
 		
 		service nginx restart
 		
-		echo ""
 		echo " 10. Configuring rTorrent service..."
 		echo ""
 		
