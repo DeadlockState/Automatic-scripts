@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ "$USER" = "root" ] ; then
+if [ $USER = "root" ] ; then
 	echo ""
 	echo " 1. Fixing default locale problems with LXC containers..."
 	echo ""
