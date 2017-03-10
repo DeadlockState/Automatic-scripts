@@ -1,3 +1,7 @@
+zfjfhfhfhfhff#
+ojafizfofz
+
+oifjfho
 #!/bin/sh
 if [ $USER = "root" ] ; then
 	echo ""
@@ -46,7 +50,7 @@ if [ $USER = "root" ] ; then
 	
 	git clone https://github.com/SickRage/SickRage.git /opt/sickrage
 	
-	cp -v /opt/sickrage/runscripts/init.ubuntu /etc/init.d/sickrage
+	cp /opt/sickrage/runscripts/init.ubuntu /etc/init.d/sickrage
 	
 	chown root:root /etc/init.d/sickrage
 	
@@ -96,11 +100,11 @@ if [ $USER = "root" ] ; then
 	
 	wget --quiet https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/namer_check.py
 	
-	cd /var/opt/couchpotato/custom_plugins
+	cd /var/opt/couchpotato/
 	
-	mkdir cpasbien t411 torrent9
+	mkdir custom_plugins/ && cd custom_plugins/
 	
-	cd cpasbien/
+	mkdir cpasbien t411 torrent9 && cd cpasbien/
 	
 	wget --quiet https://raw.githubusercontent.com/Snipees/couchpotato.providers.french/master/cpasbien/__init__.py
 	
@@ -174,7 +178,7 @@ if [ $USER = "root" ] ; then
 			RUTORRENT_USER=$(echo "$RUTORRENT_USER_TEMP" | tr -s '[:upper:]' '[:lower:]')
 		fi
 		
-		read -s -p " and the password ? [rutorrent] " RUTORRENT_PASSWORD
+		read -p " and the password ? [rutorrent] " RUTORRENT_PASSWORD
 		
 		if [ -z $RUTORRENT_PASSWORD ] ; then
 			RUTORRENT_PASSWORD = "rutorrent"
@@ -262,21 +266,21 @@ schedule = espace_disque_insuffisant,1,30,close_low_diskspace=500M" > .rtorrent.
 user=\""$RUTORRENT_USER"\"
 
 rt_start() {
-su --command=\"screen -dmS ${user}-rtorrent rtorrent" "${user}\"
+su --command=\"screen -dmS \${user}-rtorrent rtorrent\" \"\${user}\"
 }
 
 rt_stop() {
-	killall --user \"${user}\" screen
+	killall --user \"\${user}\" screen
 }
 
-case \"$1\" in
+case \"\$1\" in
 	start) echo \"Starting rRorrent...\"; rt_start
 	;;
 	stop) echo \"Stopping rTorrent...\"; rt_stop
 	;;
 	restart) echo \"Restarting rTorrent...\"; rt_stop; sleep 1; rt_start
 	;;
-	*) echo \"Usage: $0 {start|stop|restart}\"; exit 1
+	*) echo \"Usage: \$0 {start|stop|restart}\"; exit 1
 	;;
 	esac
 	exit 0" > rtorrent
