@@ -10,7 +10,7 @@
 Creates automatically a new VirtualHost (SSL or not) on your Apache or Nginx web server, you just need to fill the FQDN and the webmaster's email address of the server
 
 ```shell
-wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/utilities/VirtualHost_creator.sh
+wget https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/utilities/VirtualHost_creator.sh
 
 chmod +x VirtualHost_creator.sh
 ```
@@ -24,7 +24,7 @@ chmod +x VirtualHost_creator.sh
 Preparing and installing a fully LAMP server (Apache 2.4 + PHP 7.0 + MySQL + phpMyAdmin (optional) + Let's Encrypt(optional))
 
 ```shell
-wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/LAMP.sh
+wget https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/LAMP.sh
 
 chmod +x LAMP.sh
 ```
@@ -34,7 +34,7 @@ chmod +x LAMP.sh
 Preparing and installing a fully LEMP server (Nginx + PHP 7.0 FPM + MySQL + phpMyAdmin (optional) + Let's Encrypt (optional))
 
 ```shell
-wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/LEMP.sh
+wget https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/LEMP.sh
 
 chmod +x LEMP.sh
 ```
@@ -44,7 +44,7 @@ chmod +x LEMP.sh
 Preparing and installing a fully seedbox server (Plex + SickRage + CouchPotato + rTorrent/ruTorrent or Transmission)
 
 ```shell
-wget --no-cache https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/Seedbox.sh
+wget https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/Seedbox.sh
 
 chmod +x Seedbox.sh
 ```
