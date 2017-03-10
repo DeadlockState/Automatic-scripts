@@ -296,6 +296,8 @@ exit 0" > rtorrent
 		update-rc.d rtorrent defaults
 		
 		service rtorrent start
+		
+		service sickrage restart
 	else
 		echo " 7. Installing Transmission..."
 		echo ""
