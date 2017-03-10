@@ -167,7 +167,7 @@ if [ $USER = "root" ] ; then
 		sed -i 's/;date.timezone =/date.timezone = Europe\/Paris/g' /etc/php/7.0/fpm/php.ini
 		
 		read -p " What will be the username to access to ruTorrent ? [rutorrent] " RUTORRENT_USER_TEMP
-		echoo ""
+		echo ""
 		
 		if [ -z $RUTORRENT_USER_TEMP ] ; then
 			RUTORRENT_USER="rutorrent"
@@ -196,8 +196,6 @@ if [ $USER = "root" ] ; then
 		echo ""
 		
 		useradd $RUTORRENT_USER
-		
-		echo -e $RUTORRENT_PASSWORD"\n"$RUTORRENT_PASSWORD | passwd $RUTORRENT_USER
 		
 		cd /home/
 		
@@ -260,6 +258,17 @@ schedule = espace_disque_insuffisant,1,30,close_low_diskspace=500M" > .rtorrent.
 		touch rtorrent
 		
 		echo "#!/usr/bin/env bash
+
+### BEGIN INIT INFO
+# Provides: rtorrent
+# Required-Start: \$syslog $network
+# Required-Stop: \$syslog $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start daemon at boot time
+# Description: Start-Stop rtorrent user session
+### END INIT INFO
+
 user=\""$RUTORRENT_USER"\"
 
 rt_start() {
