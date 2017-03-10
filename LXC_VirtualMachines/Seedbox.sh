@@ -1,7 +1,3 @@
-zfjfhfhfhfhff#
-ojafizfofz
-
-oifjfho
 #!/bin/sh
 if [ $USER = "root" ] ; then
 	echo ""
