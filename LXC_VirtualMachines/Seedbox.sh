@@ -178,7 +178,7 @@ if [ $USER = "root" ] ; then
 		read -p " and the password ? [rutorrent] " RUTORRENT_PASSWORD
 		
 		if [ -z $RUTORRENT_PASSWORD ] ; then
-			RUTORRENT_PASSWORD = "rutorrent"
+			RUTORRENT_PASSWORD="rutorrent"
 		fi
 		
 		sed -i 's/rutorrent_user/'$RUTORRENT_USER'/g' /etc/nginx/sites-available/rutorrent.conf
