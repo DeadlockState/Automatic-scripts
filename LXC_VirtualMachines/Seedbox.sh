@@ -298,7 +298,7 @@ exit 0" > rtorrent
 		echo " 8. Configuring Transmission..."
 		echo ""
 		
-		sed -i 's/rpc-whitelist-enabled\": true,/rpc-whitelist-enabled\": false,/g' /etc/transmission-daemon/settings.json
+		sed -i 's/rpc-whitelist-enabled\": true/rpc-whitelist-enabled\": false/g' /etc/transmission-daemon/settings.json
 		
 		service transmission-daemon reload
 		
