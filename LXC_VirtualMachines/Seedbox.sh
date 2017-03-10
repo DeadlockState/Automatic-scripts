@@ -127,7 +127,7 @@ if [ $USER = "root" ] ; then
 		echo " 7. Installing rTorrent/ruTorrent (with Nginx)..."
 		echo ""
 
-		apt-get install -y automake libcppunit-dev libtool build-essential pkg-config libssl-dev libcurl4-openssl-dev libsigc++-2.0-dev libncurses5-dev screen subversion nginx php7.0 php7.0-fpm php7.0-cli php7.0-curl php-geoip php7.0-xmlrpc unrar rar zip ffmpeg buildtorrent mediainfo python-libtorrent rtorrent
+		apt-get install -y automake libcppunit-dev libtool build-essential pkg-config libssl-dev libcurl4-openssl-dev libsigc++-2.0-dev libncurses5-dev screen subversion nginx apache2-utils php7.0 php7.0-fpm php7.0-cli php7.0-curl php-geoip php7.0-xmlrpc unrar rar zip ffmpeg buildtorrent mediainfo python-libtorrent rtorrent
  
 		cd /var/www/html/
 		 
@@ -167,6 +167,7 @@ if [ $USER = "root" ] ; then
 		sed -i 's/;date.timezone =/date.timezone = Europe\/Paris/g' /etc/php/7.0/fpm/php.ini
 		
 		read -p " What will be the username to access to ruTorrent ? [rutorrent] " RUTORRENT_USER_TEMP
+		echoo ""
 		
 		if [ -z $RUTORRENT_USER_TEMP ] ; then
 			RUTORRENT_USER="rutorrent"
@@ -262,7 +263,7 @@ schedule = espace_disque_insuffisant,1,30,close_low_diskspace=500M" > .rtorrent.
 user=\""$RUTORRENT_USER"\"
 
 rt_start() {
-su --command=\"screen -dmS \${user}-rtorrent rtorrent\" \"\${user}\"
+	su --command=\"screen -dmS \${user} rtorrent\" \"\${user}\"
 }
 
 rt_stop() {
@@ -278,8 +279,9 @@ case \"\$1\" in
 	;;
 	*) echo \"Usage: \$0 {start|stop|restart}\"; exit 1
 	;;
-	esac
-	exit 0" > rtorrent
+
+esac
+exit 0" > rtorrent
 		
 		chmod +x rtorrent
 		
