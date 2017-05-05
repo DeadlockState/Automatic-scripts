@@ -15,6 +15,18 @@ wget https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/utili
 chmod +x VirtualHost_creator.sh
 ```
 
+#### Let's Encrypt Updater ([LetsEncrypt_updater.sh](https://github.com/Punk--Rock/LetsEncrypt-Tools/blob/master/letsencrypt_updater.sh))
+
+Automatically updates Let's Encrypt with a fresh git-clone
+
+See [installation](https://github.com/Punk--Rock/LetsEncrypt-Tools#installation)
+
+#### Let's Encrypt auto renew ([LetsEncrypt_autorenew.sh](https://github.com/Punk--Rock/LetsEncrypt-Tools/blob/master/letsencrypt_autorenew.sh))
+
+This script check days remaining before the expiration of your SSL certificates and renew automatically certificates that expires in less than of 20 days
+
+See [installation](https://github.com/Punk--Rock/LetsEncrypt-Tools#installation-1)
+
 ![Container](https://cdn2.iconfinder.com/data/icons/iconslandgps/PNG/48x48/Containers/ContainerRed.png)
 
 ## For LXC containers and Virtual Machines
