@@ -47,7 +47,6 @@ if [ $USER = "root" ] ; then
 		apt-get install -y phpmyadmin
 	fi
 	
-	echo ""
 	read -p " Would you like git clone Let's Encrypt from GitHub ? [y/N] " GITCLONE_LETSENCRYPT
 	echo ""
 	
@@ -83,9 +82,7 @@ if [ $USER = "root" ] ; then
 		rm default
 
 		ln -s /etc/nginx/sites-available/default.conf
-	else
-		# echo " ";
-		
+	else	
 		cd sites-available/
 		
 		cp default default.conf
