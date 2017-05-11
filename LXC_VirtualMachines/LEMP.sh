@@ -34,7 +34,7 @@ if [ $USER = "root" ] ; then
 	echo " 5. Installing PHP 7.0 FPM and other PHP 7.0 components..."
 	echo ""
 	
-	apt-get install -y php7.0-fpm php7.0-*
+	apt-get install -y php7.0-fpm
 	
 	echo ""
 	read -p " Would you like install phpMyAdmin ? [y/N] " INSTALL_PHPMYADMIN
