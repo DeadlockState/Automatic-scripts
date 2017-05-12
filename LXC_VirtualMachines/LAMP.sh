@@ -51,7 +51,7 @@ if [ $USER = "root" ] ; then
 	
 		cd /opt/
 		
-		git clone https://github.com/letsencrypt/letsencrypt
+		git clone https://github.com/certbot/certbot
 	fi
 	
 	echo ""
