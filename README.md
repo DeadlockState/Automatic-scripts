@@ -51,15 +51,11 @@ wget https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_V
 chmod +x LEMP.sh
 ```
 
-#### Seedbox ([Seedbox.sh](https://github.com/Punk--Rock/Automatic-scripts/blob/master/LXC_VirtualMachines/Seedbox.sh))
+#### Seedbox ([Seedbox.sh](https://github.com/Punk--Rock/Seedbox-installer/blob/master/Seedbox.sh))
 
-Preparing and installing a fully seedbox server (Plex + SickRage + CouchPotato + rTorrent/ruTorrent or Transmission)
+Preparing and installing a fully seedbox server (Plex Media Server + Sonarr/Radarr or SickRage/CouchPotato + Transmission or rTorrent/ruTorrent + Jackett + PlexPy)
 
-```shell
-wget https://raw.githubusercontent.com/Punk--Rock/Automatic-scripts/master/LXC_VirtualMachines/Seedbox.sh
-
-chmod +x Seedbox.sh
-```
+See [installation](https://github.com/Punk--Rock/Seedbox-installer#installation)
 
 ## Contact me
 
